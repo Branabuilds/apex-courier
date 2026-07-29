@@ -51,7 +51,7 @@ export default function Home() {
       const { data, error } = await supabase
         .from('shipments')
         .select('*')
-        .eq('tracking_id', searchId.trim().toUpperCase())
+        .ilike('tracking_id', searchId.trim())
         .single();
 
       if (error || !data) {
