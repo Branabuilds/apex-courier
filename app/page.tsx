@@ -24,10 +24,12 @@ export default function Home() {
   const [errorMsg, setErrorMsg] = useState('');
   
   // Live Clock State
-  const [timeString, setTimeString] = useState('');
+ const [mounted, setMounted] = useState(false);
+ const [timeString, setTimeString] = useState('');
 
   // Clock running every second
   useEffect(() => {
+    setMounted(true);
     const updateClock = () => {
       const now = new Date();
       setTimeString(now.toLocaleTimeString('en-US', { hour12: true }));
@@ -83,7 +85,7 @@ export default function Home() {
           <div className="text-right space-y-1">
             <div className="text-xs font-mono text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-3 py-1.5 rounded-lg flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              NODE TIME: {timeString || 'SYNCHRONIZING...'}
+              <span>NODE TIME: {mounted ? timeString : 'SYNCHRONIZING...'}</span>
             </div>
           </div>
         </div>
