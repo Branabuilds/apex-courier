@@ -85,7 +85,7 @@ export default function Home() {
           <div className="text-right space-y-1">
             <div className="text-xs font-mono text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-3 py-1.5 rounded-lg flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>NODE TIME: {mounted && timeString : 'SYNCHRONIZING...'}</span>
+              <span>NODE TIME: {mounted && timeString ? 'SYNCHRONIZING...'}</span>
             </div>
           </div>
         </div>
